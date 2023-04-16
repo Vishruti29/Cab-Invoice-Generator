@@ -12,4 +12,14 @@ public class CabInvoiceGenerator {
         }
         return totalFare;
     }
+
+    // UC-2 method to check the total fare for multiple rides
+    public double calculateAggregateFare(Ride[] rides) {
+        double totalFare = 0;
+        for (Ride ride : rides) {
+            totalFare += calculateFare(ride.distance, ride.time);//calling method and calculating totalFare as well
+        }
+        return totalFare;
+    }
 }
+
