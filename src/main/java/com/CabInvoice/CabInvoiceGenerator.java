@@ -1,9 +1,9 @@
 package com.CabInvoice;
 class Ride {
-    double distance;
-    int time;
+    public double distance;
+    public int time;
 
-    Ride(double distance, int time) {
+    public Ride(double distance, int time) {
         this.distance = distance;
         this.time = time;
     }
@@ -21,6 +21,7 @@ public class CabInvoiceGenerator {
         }
         return totalFare;
     }
+
     // UC-2 method to check the total fare for multiple rides
     public double calculateAggregateFare(Ride[] rides) {
         double totalFare = 0;
