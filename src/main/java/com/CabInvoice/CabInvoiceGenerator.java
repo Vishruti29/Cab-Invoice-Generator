@@ -1,13 +1,5 @@
 package com.CabInvoice;
-class Ride {
-    public double distance;
-    public int time;
 
-    public Ride(double distance, int time) {
-        this.distance = distance;
-        this.time = time;
-    }
-}
 public class CabInvoiceGenerator {
     public static final double COSTPerKM = 10.0;
     public static final double COSTPerMIN = 1.0;
@@ -42,25 +34,5 @@ public class CabInvoiceGenerator {
             totalFare += calculateFare(ride.distance, ride.time);
         }
         return totalFare;
-    }
-}
-// UC-3 for Enhanced Invoice => 1) Total Number of Rides 2) Total fare 3) avg fare per Ride
-class Invoice {
-    private final int numberOfRides;
-    private final double totalFare;
-    private final double averageFarePerRide;
-    public Invoice(int numberOfRides, double totalFare, double averageFarePerRide) {
-        this.numberOfRides = numberOfRides;
-        this.totalFare = totalFare;
-        this.averageFarePerRide = averageFarePerRide;
-    }
-    public int getNumberOfRides() {
-        return numberOfRides;
-    }
-    public double getTotalFare() {
-        return totalFare;
-    }
-    public double getAverageFarePerRide() {
-        return averageFarePerRide;
     }
 }
