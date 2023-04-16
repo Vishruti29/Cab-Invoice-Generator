@@ -1,4 +1,13 @@
 package com.CabInvoice;
+class Ride {
+    public double distance;
+    public int time;
+
+    public Ride(double distance, int time) {
+        this.distance = distance;
+        this.time = time;
+    }
+}
 public class CabInvoiceGenerator {
     public static final double COSTPerKM = 10.0;
     public static final double COSTPerMIN = 1.0;
@@ -17,9 +26,8 @@ public class CabInvoiceGenerator {
     public double calculateAggregateFare(Ride[] rides) {
         double totalFare = 0;
         for (Ride ride : rides) {
-            totalFare += calculateFare(ride.distance, ride.time);//calling method and calculating totalFare as well
+            totalFare += calculateFare(ride.distance, ride.time);
         }
         return totalFare;
     }
 }
-

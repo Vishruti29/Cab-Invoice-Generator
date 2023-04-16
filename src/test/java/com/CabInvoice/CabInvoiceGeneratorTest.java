@@ -1,24 +1,30 @@
 package com.CabInvoice;
-
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class CabInvoiceGeneratorTest{
-    @Test
-    public void givenDistanceAndTime_ShouldReturnValidFare(){
-        CabInvoiceGenerator cig = new CabInvoiceGenerator();
-        double result = cig.calculateFare(50,20);
-        Assertions.assertEquals(520,result);
-        double check = cig.calculateFare(0,2);
-        Assertions.assertEquals(5,check);
-    }
-    @Test
-    public void testCalculateAggregateFare() {
-        Ride[] rides = { new Ride(5, 10), new Ride(10, 20), new Ride(15, 30) };//60+120+180
-        CabInvoiceGenerator cig = new CabInvoiceGenerator();
-        double aggregateFare = cig.calculateAggregateFare(rides);
-        Assertions.assertEquals(360,aggregateFare);//360
+public class CabInvoiceGeneratorTest {
+    private CabInvoiceGenerator cabInvoiceGenerator;
+
+    @BeforeEach
+    public void setUp() throws Exception {
+        cabInvoiceGenerator = new CabInvoiceGenerator();
     }
 
+    @Test
+    public void givenDistanceAndTime_shouldReturnFare() {
+        double distance = 2.0;
+        int time = 5;
+        double result = cabInvoiceGenerator.calculateFare(distance, time);
+        Assertions.assertEquals(25, result, 0);
+    }
+
+    @Test
+    public void givenMultipleRides_shouldReturnAggregateFare() {
+        Ride[] rides = { new Ride(2.0, 5),
+                new Ride(3.0, 8),
+                new Ride(5.0, 10) };
+        double result = cabInvoiceGenerator.calculateAggregateFare(rides);
+        Assertions.assertEquals(123.0, result, 0);
+    }
 }
