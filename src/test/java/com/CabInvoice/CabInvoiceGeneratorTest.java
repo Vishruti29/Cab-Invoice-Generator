@@ -28,6 +28,7 @@ public class CabInvoiceGeneratorTest {
                 new Ride(10.0, 20)
         };
         Invoice invoice = cabInvoiceGenerator.calculateTotalFare(rides);
+        assertEquals(150,cabInvoiceGenerator.calculateAggregateFare(rides));//25+5(2<min_fare)+120
         assertEquals(3, invoice.getNumberOfRides());
         assertEquals(150, invoice.getTotalFare(), 0);
         assertEquals(50, invoice.getAverageFarePerRide(), 0.01);
