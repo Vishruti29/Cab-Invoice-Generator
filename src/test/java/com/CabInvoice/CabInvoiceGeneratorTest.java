@@ -13,4 +13,12 @@ public class CabInvoiceGeneratorTest{
         double check = cig.calculateFare(0,2);
         Assertions.assertEquals(5,check);
     }
+    @Test
+    public void testCalculateAggregateFare() {
+        Ride[] rides = { new Ride(5, 10), new Ride(10, 20), new Ride(15, 30) };//60+120+180
+        CabInvoiceGenerator cig = new CabInvoiceGenerator();
+        double aggregateFare = cig.calculateAggregateFare(rides);
+        Assertions.assertEquals(360,aggregateFare);//360
+    }
+
 }
